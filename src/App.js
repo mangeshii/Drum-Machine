@@ -1,13 +1,13 @@
 import './App.css';
-import DrumPad from "./DrumPad";
+import DrumMachine from './DrumMachine';
 
 function App() {
   return (
-    <DrumPad />
+    <DrumMachine />
   );
 }
-
 export default App;
+
 
 
 
