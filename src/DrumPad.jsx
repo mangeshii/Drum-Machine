@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 
-const DrumPad = ({ clip }) => {
+const DrumPad = ({ clip,setDisplayName}) => {
     const handleOnClick = () => {
         const sound = document.getElementById(clip.alphabet);
         sound.play()
+        setDisplayName(clip.id)
     }
 
     const handleKeyPressed = (event) => {
-        if (event.keyCode === clip.keycode) {
+        if (event.keyCode === clip.keycode ) {
             handleOnClick()
         }
     }
@@ -19,12 +20,15 @@ const DrumPad = ({ clip }) => {
 
     return (
         <>
+
             <div key={clip.alphabet} className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
                 <audio className="clip" id={clip.alphabet}>
                     <source src={clip.url} type="audio/mp3" />
                 </audio>
                 <span>{clip.alphabet}</span>
-            </div>
+           </div>
+            
+           
         </>
     )
 }
