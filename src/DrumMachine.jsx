@@ -1,10 +1,21 @@
 import "./App.css"
-import drumMode from "./JSON";
+import { drumMode, synthMode } from "./JSON";
 import DrumPad from "./DrumPad"
 import { useState } from "react";
 
 const DrumMachine = () => {
     const [displayName, setDisplayName] = useState('LOADING PRESETS')
+    const [volumeInput, setVolumeInput] = useState('')
+
+    const changeVolumne = (e) => {
+        const volume = e.target.value / 100;
+        const message = "Volume: " + e.target.value;
+        setVolumeInput({
+            volume:volume,
+            currentSound:message,
+            volumeValue: e.target.value
+        })
+    }
 
     return (
         <div className="App">
@@ -15,7 +26,7 @@ const DrumMachine = () => {
                         <div className='col-md-6 left-section'>
                             <div className='hori-1'>
                                 {drumMode.map((clip) => {
-                                    return <DrumPad clip={clip} setDisplayName={setDisplayName} />
+                                    return <DrumPad clip={clip} setDisplayName={setDisplayName} volumeInput={volumeInput} />
 
                                 })}
                             </div>
@@ -24,6 +35,14 @@ const DrumMachine = () => {
                             <div className="hori-2">
                                 {displayName}
                             </div>
+                            <input
+                                value={volumeInput.volumeValue}
+                                type="range"
+                                min="1"
+                                max="100"
+                                onChange={changeVolumne}
+                            >
+                            </input>
                         </div>
 
                     </div>
