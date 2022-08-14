@@ -2,21 +2,13 @@ import "./App.css"
 import { drumMode, synthMode } from "./JSON";
 import DrumPad from "./DrumPad"
 import { useState } from "react";
+import ControlDisplay from "./ControlDisplay"
 
 const DrumMachine = () => {
     const [displayName, setDisplayName] = useState('LOADING PRESETS')
-    const [volumeInput, setVolumeInput] = useState({volume:"0.5"})
+    const [volumeInput, setVolumeInput] = useState({ volume: "0.5" })
 
-    const changeVolume = (e) => {
-        const volume = e.target.value / 100;
-        const message = "Volume: " + e.target.value;
-        setVolumeInput({
-            volume: volume,
-            currentSound: message,
-            volumeValue: e.target.value,
-            message: message
-        })
-    }
+
 
     return (
         <div className="App">
@@ -33,23 +25,8 @@ const DrumMachine = () => {
                             </div>
                         </div>
                         <div className="col-md-6 right-section">
-                            <div className="hori-2">
-                                {displayName}
-                            </div>
-                            <input
-                                value={volumeInput.volumeValue}
-                                type="range"
-                                min="1"
-                                max="100"
-                                onChange={changeVolume}
-                                name="output"
-                            >
-                            </input>
-                            <section>
-                                <p contenteditable="true">{`Volume: ${Math.round(volumeInput.volume*100)}%`}</p>
-                            </section>
+                            <ControlDisplay displayName={displayName} volumeInput={volumeInput} setVolumeInput={setVolumeInput} />
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -59,4 +36,6 @@ const DrumMachine = () => {
 }
 
 export default DrumMachine;
+
+
 
