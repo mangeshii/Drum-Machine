@@ -5,15 +5,16 @@ import { useState } from "react";
 
 const DrumMachine = () => {
     const [displayName, setDisplayName] = useState('LOADING PRESETS')
-    const [volumeInput, setVolumeInput] = useState('')
+    const [volumeInput, setVolumeInput] = useState({volume:"0.5"})
 
-    const changeVolumne = (e) => {
+    const changeVolume = (e) => {
         const volume = e.target.value / 100;
         const message = "Volume: " + e.target.value;
         setVolumeInput({
-            volume:volume,
-            currentSound:message,
-            volumeValue: e.target.value
+            volume: volume,
+            currentSound: message,
+            volumeValue: e.target.value,
+            message: message
         })
     }
 
@@ -26,7 +27,7 @@ const DrumMachine = () => {
                         <div className='col-md-6 left-section'>
                             <div className='hori-1'>
                                 {drumMode.map((clip) => {
-                                    return <DrumPad clip={clip} setDisplayName={setDisplayName} volumeInput={volumeInput} />
+                                    return <DrumPad clip={clip} setDisplayName={setDisplayName} volumeInput={volumeInput} key={clip.alphabet} />
 
                                 })}
                             </div>
@@ -40,9 +41,13 @@ const DrumMachine = () => {
                                 type="range"
                                 min="1"
                                 max="100"
-                                onChange={changeVolumne}
+                                onChange={changeVolume}
+                                name="output"
                             >
                             </input>
+                            <section>
+                                <p contenteditable="true">{`Volume: ${Math.round(volumeInput.volume*100)}%`}</p>
+                            </section>
                         </div>
 
                     </div>
