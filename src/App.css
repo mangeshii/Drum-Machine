@@ -41,7 +41,6 @@
 .hori-2 {
   margin: 20px;
   border-radius: 10px;
-  background: linear-gradient(to bottom right, rgb(52, 152, 219) 12.5%, #a1b1e4 25%, rgb(52, 152, 219) 50%, #a1b1e4 75%, #a1b1e4 100%);
   border: 2px solid rgb(80, 80, 204)
 }
 
@@ -62,8 +61,6 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-
-
 }
 
 .box {
@@ -72,7 +69,6 @@
   margin: 7px;
   border-radius: 5px;
   display: flex;
-  ;
   justify-content: center;
   align-items: center;
   font-weight: 700;
@@ -87,13 +83,8 @@
 }
 
 .power-icon {
-  font-size: 25px;
-}
-
-.power-btn {
-  border: 2px solid black;
-  padding: 7px;
-  border-radius: 50%;
+  font-size: 20px;
+  color:greenyellow
 }
 
 .vol-mode {
@@ -133,4 +124,15 @@
 
 .slider {
   width: 300px
+}
+.chg-mode{
+  padding: 20px;
+  display: flex;
+}
+.drums{
+  width:100%;
+  margin-right: 3px;
+}
+.synth{
+  width: 100%;
 }

@@ -1,19 +1,18 @@
 import { useEffect } from "react";
 
-const DrumPad = ({ clip, setDisplayName, volumeInput, power }) => {
-    console.log(clip.color)
+const DrumPad = ({ clipDrum, setDisplayName, volumeInput, power }) => {
 
     const handleOnClick = () => {
         if (power) {
-            const sound = document.getElementById(clip.alphabet);
+            const sound = document.getElementById(clipDrum.alphabet);
             sound.play()
             sound.volume = parseFloat(volumeInput.volume)
-            setDisplayName(clip.id)
+            setDisplayName(clipDrum.id)
         }
     }
 
     const handleKeyPressed = (event) => {
-        if (event.keyCode === clip.keycode) {
+        if (event.keyCode === clipDrum.keycode) {
             handleOnClick()
         }
     }
@@ -24,11 +23,11 @@ const DrumPad = ({ clip, setDisplayName, volumeInput, power }) => {
     })
 
     return (
-        <div style={{ backgroundColor: clip.color }} className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
-            <audio className="clip" id={clip.alphabet}>
-                <source src={clip.url} type="audio/mp3" />
+        <div style={{ backgroundColor: clipDrum.color }} className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
+            <audio className="clip" id={clipDrum.alphabet}>
+                <source src={clipDrum.url} type="audio/mp3" />
             </audio>
-            <span >{clip.alphabet}</span>
+            <span >{clipDrum.alphabet}</span>
         </div>
     )
 }
