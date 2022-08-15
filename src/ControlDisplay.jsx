@@ -1,3 +1,4 @@
+import { AiOutlineSound } from 'react-icons/ai'
 const ControlDisplay = ({ displayName, volumeInput, setVolumeInput }) => {
 
     const changeVolume = (e) => {
@@ -13,20 +14,29 @@ const ControlDisplay = ({ displayName, volumeInput, setVolumeInput }) => {
     return (
         <>
             <div className="hori-2">
-                {displayName}
+                <div className="drum-name">
+
+                    {displayName}
+                </div>
+                <section className="vol-mode">
+                    <p className="vol">{`Volume: ${Math.round(volumeInput.volume * 100)}%`}</p>
+                    <p className="mode">MODE: DRUM</p>
+                </section>
             </div>
-            <input
-                value={volumeInput.volumeValue}
-                type="range"
-                min="1"
-                max="100"
-                onChange={changeVolume}
-                name="output"
-            >
-            </input>
-            <section>
-                <p>{`Volume: ${Math.round(volumeInput.volume * 100)}%`}</p>
-            </section>
+            <div className="sound">
+                <AiOutlineSound className='sound-icon' />
+                <input
+                    value={volumeInput.volumeValue}
+                    type="range"
+                    min="1"
+                    max="100"
+                    onChange={changeVolume}
+                    name="output"
+                    className='slider'
+                >
+                </input>
+
+            </div>
         </>
     )
 }

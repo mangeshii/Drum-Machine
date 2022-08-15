@@ -1,82 +1,136 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron');
+
 .App {
   text-align: center;
   font-family: 'Orbitron';
 }
 
 .container {
-  height:100vh;
+  height: 100vh;
   display: flex;
   justify-content: center;
- align-items: center;
+  align-items: center;
 }
 
 .drum-container {
   width: 800px;
-  max-width:800px;
+  max-width: 800px;
   display: flex;
   flex-direction: column;
-  background-image: linear-gradient(to right top, #1c1d1d, #333334, #4b4c4c, #656565, #808080);
-  padding:40px 20px
+  background: linear-gradient(to bottom right, #111 12.5%, #434343 25%, #111 50%, #434343 75%, #111 100%);
+  padding: 40px 20px
 }
-.header-drum{
-  color:#e67e22;
+
+.header-drum {
+  color: #e67e22;
 }
-.head{
+
+.head {
   font-weight: 600;
-  color:white
+  color: white
 }
-.machine{
+
+.machine {
   display: flex;
 }
- .right-section{
-  border:1px solid grey
- }
-.hori-2{
-  margin:30px;
-  padding: 30px;
-  border-radius: 10px;
-  background-color: whitesmoke; 
+
+.right-section {
+  border: 1px solid grey
 }
-.header{
+
+.hori-2 {
+  margin: 20px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, rgb(52, 152, 219) 12.5%, #a1b1e4 25%, rgb(52, 152, 219) 50%, #a1b1e4 75%, #a1b1e4 100%);
+  border: 2px solid rgb(80, 80, 204)
+}
+
+.drum-name {
+  margin: 30px
+}
+
+.header {
   text-align: start;
   padding: 0px 35px;
-  /* font-weight: 700; */
-  margin-bottom: 2%;
+  margin-bottom: 1%;
   display: flex;
   justify-content: space-between;
 }
-.hori-1{
+
+.hori-1 {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  
+
+
 }
-.box{
-  height:80px;
-  width:100px;
-  margin:7px;
+
+.box {
+  height: 80px;
+  width: 100px;
+  margin: 7px;
   border-radius: 5px;
-  display: flex;;
+  display: flex;
+  ;
   justify-content: center;
   align-items: center;
   font-weight: 700;
   font-size: larger;
   background-color: #A9A9A9;
-  box-shadow: rgba(0, 0, 0,2) 0px 2px 4px, rgba(0, 0, 0, 0.6) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 2) 0px 2px 4px, rgba(0, 0, 0, 0.6) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.controller-section{
-  border:1px solid grey;
-  margin:20px
+.controller-section {
+  border: 1px solid grey;
+  margin: 20px
 }
 
-.power-icon{
+.power-icon {
   font-size: 25px;
 }
-.power-btn{
-  border:2px solid black;
+
+.power-btn {
+  border: 2px solid black;
   padding: 7px;
   border-radius: 50%;
+}
+
+.vol-mode {
+  display: flex;
+  width: 100%
+}
+
+.vol,
+.mode {
+  border: 1px solid white;
+  width: 100%;
+  margin-bottom: 0%;
+  padding: 10px;
+
+}
+
+.vol {
+  border-bottom-left-radius: 10px;
+
+}
+
+.mode {
+  border-bottom-right-radius: 10px;
+
+}
+
+.sound-icon {
+  color: white;
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.sound {
+  display: flex;
+  justify-content: center;
+}
+
+.slider {
+  width: 300px
 }

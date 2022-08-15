@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 
-const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, power}) => {
+const DrumPad = ({ clip, setDisplayName, volumeInput, power }) => {
     console.log(clip.color)
 
     const handleOnClick = () => {
@@ -9,10 +9,6 @@ const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, power}) => {
             sound.play()
             sound.volume = parseFloat(volumeInput.volume)
             setDisplayName(clip.id)
-            setPlaying(true)
-        }
-        else {
-            setPlaying(false)
         }
     }
 
@@ -28,7 +24,7 @@ const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, power}) => {
     })
 
     return (
-        <div style={{backgroundColor:clip.color}} className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
+        <div style={{ backgroundColor: clip.color }} className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
             <audio className="clip" id={clip.alphabet}>
                 <source src={clip.url} type="audio/mp3" />
             </audio>

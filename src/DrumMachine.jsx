@@ -6,10 +6,9 @@ import ControlDisplay from "./ControlDisplay";
 import { AiOutlinePoweroff } from 'react-icons/ai'
 
 const DrumMachine = () => {
-    const [displayName, setDisplayName] = useState('LOADING PRESETS')
+    const [displayName, setDisplayName] = useState('LOADING PRESETS...')
     const [volumeInput, setVolumeInput] = useState({ volume: "0.5" })
     const [power, setPower] = useState(true)
-    const [playing, setPlaying] = useState(false)
 
     const togglePower = () => {
         setPower(!power)
@@ -34,8 +33,7 @@ const DrumMachine = () => {
                                         setDisplayName={setDisplayName}
                                         volumeInput={volumeInput}
                                         key={clip.alphabet}
-                                        setPlaying={setPlaying}
-                                        power={power}/>
+                                        power={power} />
 
                                 })}
                             </div>
