@@ -84,7 +84,7 @@
 
 .power-icon {
   font-size: 20px;
-  color:greenyellow
+  color: greenyellow
 }
 
 .vol-mode {
@@ -125,14 +125,21 @@
 .slider {
   width: 300px
 }
-.chg-mode{
+
+.chg-mode {
   padding: 20px;
   display: flex;
 }
-.drums{
-  width:100%;
-  margin-right: 3px;
-}
-.synth{
+
+.drums {
   width: 100%;
+  margin-right: 3px;
+  background: linear-gradient(to bottom right, #E3B778 12.5%, #FAE29C 25%, #E3B778 50%, #FAE29C 75%, #E3B778 100%);
+  
+}
+
+.synth {
+  width: 100%;
+  background: linear-gradient(to bottom right, #658354 12.5%, #B3CF99 25%, #658354 50%, #B3CF99 75%, #658354 100%);
+
 }

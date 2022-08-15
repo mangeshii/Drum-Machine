@@ -1,7 +1,7 @@
 import "./App.css"
 import { drumMode, synthMode } from "./JSON";
 import DrumPad from "./DrumPad"
-import { useState } from "react";
+import {useState } from "react";
 import ControlDisplay from "./ControlDisplay";
 import { AiOutlinePoweroff } from 'react-icons/ai'
 
@@ -9,7 +9,7 @@ const DrumMachine = () => {
     const [displayName, setDisplayName] = useState('LOADING PRESETS...')
     const [volumeInput, setVolumeInput] = useState({ volume: "0.5" })
     const [power, setPower] = useState(true)
-
+    const [displayMode, setDisplayMode] = useState("DRUM")
 
     const togglePower = () => {
         setPower(!power)
@@ -19,23 +19,32 @@ const DrumMachine = () => {
             setDisplayName={setDisplayName}
             volumeInput={volumeInput}
             key={clipDrum.alphabet}
-            power={power} />
+            power={power} 
+            />
     })
 
-    const SynthMode = synthMode.map((clipSynth) => {
-        return <DrumPad clipSynth={clipSynth}
+    const SynthMode = synthMode.map((clipDrum) => {
+        return <DrumPad clipDrum={clipDrum}
             setDisplayName={setDisplayName}
             volumeInput={volumeInput}
-            key={clipSynth.alphabet}
+            key={clipDrum.alphabet}
             power={power} />
     })
-
+    
 
     const stylepowerbtn = power ? { color: 'greenyellow' } : { color: 'red' }
     const deactivatedisplay = !power ? {
         background: "linear-gradient(to bottom right,rgba(255,255,255,0.3),rgba(255,255,255,0.5),rgba(255,255,255,0.3),rgba(255,255,255,0.5),rgba(255,255,255,0.3))", border: "2px solid grey"
     } : { background: "linear-gradient(to bottom right, rgb(52, 152, 219) 12.5%, #a1b1e4 25%, rgb(52, 152, 219) 50%, #a1b1e4 75%, #a1b1e4 100%)" }
 
+
+    const handleDrumMode = () => {
+        setDisplayMode('DRUM')
+    }
+
+    const handleSynthMode = () => {
+        setDisplayMode('SYNTH')
+    }
 
     return (
         <div className="App">
@@ -49,7 +58,7 @@ const DrumMachine = () => {
                     <div className="machine">
                         <div className='col-md-6 left-section'>
                             <div className='hori-1' >
-                                {DrumMode}
+                                 {DrumMode}
                             </div>
                         </div>
                         <div className="col-md-6 right-section">
@@ -57,10 +66,11 @@ const DrumMachine = () => {
                                 volumeInput={volumeInput}
                                 setVolumeInput={setVolumeInput}
                                 deactivatedisplay={deactivatedisplay}
+                                displayMode={displayMode}
                             />
                             <div className="chg-mode">
-                                <button className="drums">DRUMS</button>
-                                <button className="synth">SYNTH</button>
+                                <button value='DRUM' onClick={handleDrumMode} className="drums">DRUMS</button>
+                                <button value='SYNTH' onClick={handleSynthMode} className="synth">SYNTH</button>
                             </div>
                         </div>
                     </div>

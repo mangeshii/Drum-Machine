@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
 const DrumPad = ({ clipDrum, setDisplayName, volumeInput, power }) => {
+    // console.log(clipDrum)
 
     const handleOnClick = () => {
         if (power) {
