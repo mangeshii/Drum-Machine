@@ -25,7 +25,7 @@ const ControlDisplay = ({ displayName, volumeInput, setVolumeInput }) => {
             >
             </input>
             <section>
-                <p contenteditable="true">{`Volume: ${Math.round(volumeInput.volume * 100)}%`}</p>
+                <p>{`Volume: ${Math.round(volumeInput.volume * 100)}%`}</p>
             </section>
         </>
     )
