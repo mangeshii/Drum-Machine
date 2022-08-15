@@ -1,7 +1,7 @@
 import "./App.css"
 import { drumMode } from "./JSON";
 import DrumPad from "./DrumPad"
-import { useState } from "react";
+import {  useState } from "react";
 import ControlDisplay from "./ControlDisplay";
 import { AiOutlinePoweroff } from 'react-icons/ai'
 
@@ -10,20 +10,24 @@ const DrumMachine = () => {
     const [volumeInput, setVolumeInput] = useState({ volume: "0.5" })
     const [power, setPower] = useState(true)
     const [displayMode, setDisplayMode] = useState("DRUM")
-
+    
+   
     const togglePower = () => {
         setPower(!power)
     }
 
     const DrumMode = drumMode.map((clipDrum) => {
-        return <DrumPad clipDrum={clipDrum}
-            setDisplayName={setDisplayName}
-            volumeInput={volumeInput}
-            key={clipDrum.alphabet}
-            power={power}
-            displayMode={displayMode}
-        />
+        return (
+            <DrumPad clipDrum={clipDrum}
+                setDisplayName={setDisplayName}
+                volumeInput={volumeInput}
+                key={clipDrum.alphabet}
+                power={power}
+                displayMode={displayMode}
+            />)
     })
+
+    
 
     const stylepowerbtn = power ? { color: 'greenyellow' } : { color: 'red' }
     const deactivatedisplay = !power ? {
@@ -33,6 +37,7 @@ const DrumMachine = () => {
 
     const handleDrumMode = () => {
         setDisplayMode('DRUM')
+
     }
 
     const handleSynthMode = () => {
