@@ -7,21 +7,14 @@ import ControlDisplay from "./ControlDisplay"
 const DrumMachine = () => {
     const [displayName, setDisplayName] = useState('LOADING PRESETS')
     const [volumeInput, setVolumeInput] = useState({ volume: "0.5" })
-    const [power, setPower] = useState(false)
+    const [power, setPower] = useState(true)
     const [playing, setPlaying] = useState(false)
 
-    console.log(playing)
-    
-    // const style = power ? { background: "white" } : { background: "pink", boxShadow: "none" };
-
-    const onStyle = { transform: "scale(0.95)", boxShadow: "1px 1px 4px 4px cyan, -1px -1px 4px 4px cyan" };
-    const offStyle = { transform: "scale(1)", boxShadow: "none" };
+    const style = power ? { background: "WHITE" } : { background: "black" };
 
     const togglePower = () => {
-        setPower({ power: !power })
+        setPower(!power)
     }
-
-    const style = power ? {background: '#476b68'} : playing ? onStyle : offStyle;
 
     return (
         <div className="App">
@@ -30,17 +23,16 @@ const DrumMachine = () => {
                     <h3 className="header">DRUMMACHINE</h3>
                     <div className="machine">
                         <div className='col-md-6 left-section'>
-                            <div className='hori-1' style={style}>
+                            <div className='hori-1' >
                                 {drumMode.map((clip) => {
                                     return <DrumPad clip={clip}
                                         setDisplayName={setDisplayName}
                                         volumeInput={volumeInput}
                                         key={clip.alphabet}
                                         setPlaying={setPlaying}
-                                        onStyle={onStyle}
-                                        offStyle={offStyle}
                                         power={power}
-                                        playing={playing} />
+                                        playing={playing}
+                                        style={style} />
 
                                 })}
                             </div>

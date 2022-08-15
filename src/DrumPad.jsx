@@ -1,16 +1,18 @@
 import { useEffect } from "react";
 
-const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, onStyle, offStyle, power, playing }) => {
+const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, style, onStyle, offStyle, power, playing }) => {
 
     const handleOnClick = () => {
-        const sound = document.getElementById(clip.alphabet);
-        sound.play()
-        sound.volume = parseFloat(volumeInput.volume)
-        setDisplayName(clip.id)
-        setPlaying(true)
-
-
-
+        if (power) {
+            const sound = document.getElementById(clip.alphabet);
+            sound.play()
+            sound.volume = parseFloat(volumeInput.volume)
+            setDisplayName(clip.id)
+            setPlaying(true)
+        }
+        else {
+            setPlaying(false)
+        }
     }
 
     const handleKeyPressed = (event) => {
@@ -25,7 +27,7 @@ const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, onStyle, offSt
     })
 
     return (
-        <div className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
+        <div style={style} className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
             <audio className="clip" id={clip.alphabet}>
                 <source src={clip.url} type="audio/mp3" />
             </audio>
@@ -35,5 +37,6 @@ const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, onStyle, offSt
 }
 
 export default DrumPad
+
 
 
