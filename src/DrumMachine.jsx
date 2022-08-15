@@ -2,15 +2,14 @@ import "./App.css"
 import { drumMode, synthMode } from "./JSON";
 import DrumPad from "./DrumPad"
 import { useState } from "react";
-import ControlDisplay from "./ControlDisplay"
+import ControlDisplay from "./ControlDisplay";
+import { AiOutlinePoweroff } from 'react-icons/ai'
 
 const DrumMachine = () => {
     const [displayName, setDisplayName] = useState('LOADING PRESETS')
     const [volumeInput, setVolumeInput] = useState({ volume: "0.5" })
     const [power, setPower] = useState(true)
     const [playing, setPlaying] = useState(false)
-
-    const style = power ? { background: "WHITE" } : { background: "black" };
 
     const togglePower = () => {
         setPower(!power)
@@ -20,7 +19,13 @@ const DrumMachine = () => {
         <div className="App">
             <div className='container'>
                 <div className='drum-container'>
-                    <h3 className="header">DRUMMACHINE</h3>
+                    <div className="header">
+                        <h4 className="head"><span className="header-drum">DRUM</span>MACHINE</h4>
+                        <button className="power-btn">
+                            <AiOutlinePoweroff className="power-icon" onClick={togglePower} />
+                        </button>
+                    </div>
+
                     <div className="machine">
                         <div className='col-md-6 left-section'>
                             <div className='hori-1' >
@@ -30,9 +35,7 @@ const DrumMachine = () => {
                                         volumeInput={volumeInput}
                                         key={clip.alphabet}
                                         setPlaying={setPlaying}
-                                        power={power}
-                                        playing={playing}
-                                        style={style} />
+                                        power={power}/>
 
                                 })}
                             </div>
@@ -42,7 +45,6 @@ const DrumMachine = () => {
                                 volumeInput={volumeInput}
                                 setVolumeInput={setVolumeInput} />
 
-                            <button onClick={togglePower} style={style}>OFF</button>
                         </div>
                     </div>
                 </div>
@@ -53,6 +55,7 @@ const DrumMachine = () => {
 }
 
 export default DrumMachine;
+
 
 
 

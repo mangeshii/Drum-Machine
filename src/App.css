@@ -16,8 +16,15 @@
   max-width:800px;
   display: flex;
   flex-direction: column;
-  background-color: 	#DCDCDC;
+  background-image: linear-gradient(to right top, #1c1d1d, #333334, #4b4c4c, #656565, #808080);
   padding:40px 20px
+}
+.header-drum{
+  color:#e67e22;
+}
+.head{
+  font-weight: 600;
+  color:white
 }
 .machine{
   display: flex;
@@ -34,8 +41,10 @@
 .header{
   text-align: start;
   padding: 0px 35px;
-  font-weight: 700;
+  /* font-weight: 700; */
   margin-bottom: 2%;
+  display: flex;
+  justify-content: space-between;
 }
 .hori-1{
   display: flex;
@@ -61,4 +70,13 @@
 .controller-section{
   border:1px solid grey;
   margin:20px
+}
+
+.power-icon{
+  font-size: 25px;
+}
+.power-btn{
+  border:2px solid black;
+  padding: 7px;
+  border-radius: 50%;
 }

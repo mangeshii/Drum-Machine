@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
-const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, style, onStyle, offStyle, power, playing }) => {
+const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, power}) => {
+    console.log(clip.color)
 
     const handleOnClick = () => {
         if (power) {
@@ -27,7 +28,7 @@ const DrumPad = ({ clip, setDisplayName, volumeInput, setPlaying, style, onStyle
     })
 
     return (
-        <div style={style} className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
+        <div style={{backgroundColor:clip.color}} className="box drum-pad" onClick={handleOnClick} tabIndex={0} >
             <audio className="clip" id={clip.alphabet}>
                 <source src={clip.url} type="audio/mp3" />
             </audio>
