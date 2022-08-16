@@ -9,8 +9,7 @@ const DrumMachine = () => {
     const [displayName, setDisplayName] = useState('LOADING PRESETS...')
     const [volumeInput, setVolumeInput] = useState({ volume: "0.5" })
     const [power, setPower] = useState(true)
-    const [displayMode, setDisplayMode] = useState("DRUM")
-    
+    const [displayMode, setDisplayMode] = useState('');
    
     const togglePower = () => {
         setPower(!power)
@@ -24,24 +23,22 @@ const DrumMachine = () => {
                 key={clipDrum.alphabet}
                 power={power}
                 displayMode={displayMode}
-            />)
-    })
-
-    
+            />);
+    });
 
     const stylepowerbtn = power ? { color: 'greenyellow' } : { color: 'red' }
+
     const deactivatedisplay = !power ? {
         background: "linear-gradient(to bottom right,rgba(255,255,255,0.3),rgba(255,255,255,0.5),rgba(255,255,255,0.3),rgba(255,255,255,0.5),rgba(255,255,255,0.3))", border: "2px solid grey"
     } : { background: "linear-gradient(to bottom right, rgb(52, 152, 219) 12.5%, #a1b1e4 25%, rgb(52, 152, 219) 50%, #a1b1e4 75%, #a1b1e4 100%)" }
 
 
     const handleDrumMode = () => {
-        setDisplayMode('DRUM')
-
+        setDisplayMode("DRUM")
     }
 
     const handleSynthMode = () => {
-        setDisplayMode('SYNTH')
+        setDisplayMode("SYNTH")
     }
 
     return (

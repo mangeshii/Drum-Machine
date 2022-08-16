@@ -1,14 +1,18 @@
-import { useEffect} from "react";
+import { useEffect,useRef, useState } from "react";
 
 const DrumPad = ({ clipDrum, setDisplayName, volumeInput, power, displayMode }) => {
 
+
+    const ref=useRef()
+    console.log(ref.current)
+    
     const handleOnClick = () => {
         if (power) {
-            const sound = document.getElementById(clipDrum.alphabet + displayMode);
-            console.log(sound)
-            sound.play()
-            sound.volume = parseFloat(volumeInput.volume)
-            setDisplayName(clipDrum.id)
+            // const sound = document.getElementById(clipDrum.alphabet + displayMode);
+            // sound.volume = parseFloat(volumeInput.volume);
+            ref.current.play();
+            setDisplayName(clipDrum.id);
+           
         }
     }
 
@@ -22,10 +26,12 @@ const DrumPad = ({ clipDrum, setDisplayName, volumeInput, power, displayMode }) 
         document.addEventListener('keydown', handleKeyPressed);
     }, [])
 
+    
+
     return (
         <div style={{ backgroundColor: clipDrum.color }} className="box drum-pad" onClick={handleOnClick} tabIndex={0}>
-            <audio className="clip" id={clipDrum.alphabet + displayMode}>
-                {displayMode === "DRUM" ? (<source src={clipDrum.urls[0]} type="audio/mp3" /> ): (<source src={clipDrum.urls[1]} type="audio/mp3" />)}
+            <audio ref={ref} className="clip" id={clipDrum.alphabet + displayMode}>
+               <source  src={ref} type="audio/mp3" />
             </audio>
             <span >{clipDrum.alphabet}</span>
         </div>

@@ -11,6 +11,7 @@ const ControlDisplay = ({ displayName, volumeInput, setVolumeInput, deactivatedi
             message: message
         })
     }
+    
     return (
         <>
             <div className="hori-2" style={deactivatedisplay}>
