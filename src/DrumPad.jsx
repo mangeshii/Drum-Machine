@@ -2,15 +2,12 @@ import { useEffect,useRef, useState } from "react";
 
 const DrumPad = ({ clipDrum, setDisplayName, volumeInput, power, displayMode }) => {
 
+    const inputRef=useRef()
 
-    const ref=useRef()
-    console.log(ref.current)
-    
     const handleOnClick = () => {
         if (power) {
-            // const sound = document.getElementById(clipDrum.alphabet + displayMode);
-            // sound.volume = parseFloat(volumeInput.volume);
-            ref.current.play();
+            inputRef.current.volume=parseFloat(volumeInput.volume);
+            inputRef.current.play()
             setDisplayName(clipDrum.id);
            
         }
@@ -30,9 +27,7 @@ const DrumPad = ({ clipDrum, setDisplayName, volumeInput, power, displayMode }) 
 
     return (
         <div style={{ backgroundColor: clipDrum.color }} className="box drum-pad" onClick={handleOnClick} tabIndex={0}>
-            <audio ref={ref} className="clip" id={clipDrum.alphabet + displayMode}>
-               <source  src={ref} type="audio/mp3" />
-            </audio>
+            <audio ref={inputRef} src={(displayMode == 'DRUM') ? clipDrum.urls[0]: clipDrum.urls[1]} className="clip" id={clipDrum.alphabet + displayMode}/>
             <span >{clipDrum.alphabet}</span>
         </div>
     )
