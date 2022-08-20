@@ -1,17 +1,23 @@
-const ModeButton=({setDisplayMode})=>{
+const ModeButton=({setDisplayMode,power,deactivatedbuttonDrum,deactivatedbuttonSynth})=>{
 
     const handleDrumMode = () => {
-        setDisplayMode("DRUM")
+        if(power){
+            setDisplayMode("DRUM")
+        }
+
     }
 
     const handleSynthMode = () => {
-        setDisplayMode("SYNTH")
+        if(power){
+            setDisplayMode("SYNTH")
+        }
+
     }
 
     return(
         <>
-        <button value='DRUM' onClick={handleDrumMode} className="drums">DRUMS</button>
-        <button value='SYNTH' onClick={handleSynthMode} className="synth">SYNTH</button>
+        <button style={deactivatedbuttonDrum} value='DRUM' onClick={handleDrumMode} className="drums">DRUMS</button>
+        <button  style={deactivatedbuttonSynth} value='SYNTH' onClick={handleSynthMode} className="synth">SYNTH</button>
         </>
     )
 }

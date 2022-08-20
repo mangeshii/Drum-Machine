@@ -5,6 +5,8 @@ import { useState } from "react";
 import ControlDisplay from "./ControlDisplay";
 import ModeButton from "./ModeButton";
 import Header from "./Header";
+import {Displaystyle,buttonStyleDrum,buttonStyleSynth} from "./OffStyle";
+
 
 const DrumMachine = () => {
     const [displayName, setDisplayName] = useState('LOADING PRESETS...')
@@ -25,10 +27,11 @@ const DrumMachine = () => {
 
     });
 
+    
+    const deactivatedisplay = !power ? (Displaystyle.Active) : (Displaystyle.Inactive)
+    const deactivatedbuttonDrum = !power ? (buttonStyleDrum.Active) : (buttonStyleDrum.Inactive)
+    const deactivatedbuttonSynth = !power ? (buttonStyleSynth.Active) : (buttonStyleSynth.Inactive)
 
-    const deactivatedisplay = !power ? {
-        background: "linear-gradient(to bottom right,rgba(255,255,255,0.3),rgba(255,255,255,0.5),rgba(255,255,255,0.3),rgba(255,255,255,0.5),rgba(255,255,255,0.3))", border: "2px solid grey"
-    } : { background: "linear-gradient(to bottom right, rgb(52, 152, 219) 12.5%, #a1b1e4 25%, rgb(52, 152, 219) 50%, #a1b1e4 75%, #a1b1e4 100%)" }
 
 
     return (
@@ -53,7 +56,7 @@ const DrumMachine = () => {
                                 displayMode={displayMode}
                             />
                             <div className="chg-mode">
-                                <ModeButton setDisplayMode={setDisplayMode}/>
+                                <ModeButton setDisplayMode={setDisplayMode} power={power} deactivatedbuttonDrum={deactivatedbuttonDrum} deactivatedbuttonSynth={deactivatedbuttonSynth}/>
                             </div>
                         </div>
                     </div>
